@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+      <title>{{title}}</title>
+      <link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='styles.css')  }}" />
+    </head>
+  <body>
+
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      <div>
+        {% for category,message in messages %}
+          <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+      </div>
+  {% endwith %}  
+  <a href="http://127.0.0.1:5000/">Home</a> <a href="http://127.0.0.1:5000/new_post">New Post</a>
+  <br />
+  <br />
+
+    {%  block content  %}
+    {%  endblock  %}
+
+  </body>
+</html>
