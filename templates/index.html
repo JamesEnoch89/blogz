@@ -1,29 +1,23 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
+<div class='header'>
+<h1>Build-A-Blog</h1>
+</div>
 
-<h1 style= "text-align:center">Welcome to Your Blog</h1>
-
-{% if blogs |length == 0  %}
-<p>
-  There are no blog posts yet!
-</p>
-{%  else  %}
-  <ul>
-    {%for blog in blogs %}
-        <li>
-            <a href="/single_template?id={{blog.id}}">{{blog.title}}</a>
-          {{blog.content}}
-          <input type="hidden" name="blog-id" value="{{blog.id}}" />
-      </form>
-      <hr />
-    </li>
-    {% endfor %}
-  </ul>
+<div class='content'>
+{% if blogs|length == 0 %}
+<p>No blogs yet. <a href='/newpost'>Add one!</a></p>
+{% else %}
+    <ul>
+        {% for blog in blogs %}
+        <li class='box'>
+            <p><a href='/blogpost?id={{blog.id}}'><h3>{{blog.title}}</h3></a></p>
+            <p>{{blog.pub_date}}</p>
+            <p>{{blog.body}}</p>
+        </li>
+        {% endfor %}
+    </ul>
 {% endif %}
-
-<hr />
-
-
-
+</div>
 {% endblock %}

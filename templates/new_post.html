@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2>New Blog Post</h2>
+<br>
+<strong>{{ errmsg }}</strong>
+  <form  method="post">
+      <label>
+          <div>Blog Title</div>
+          <input type="text" name="title" value={{title}}>
+        </label>
+        <label>
+          <div>Blog Entry</div>
+          <textarea rows="15" cols="45" name="blog_post">{{blog_post}}</textarea>
+        </label>
+        <div class="error">{{error}}</div>
+        <input type="submit" value="SUBMIT">
+      </form>
 
-
-<h1 style= "text-align:center">Build Your Blog Post</h1>
-<form method='post'>
-  <label> New Blog Title
-    <input type="text" name="blog" value='{{ blog_name }}' />
-  </label>
-  <label> New Blog Entry
-    <input type="text" name="content" value '{{ blog_content }}' />
-  </label>
-  <input type="submit" value="Add an Entry!" />
-</form>
 
 {% endblock %}
