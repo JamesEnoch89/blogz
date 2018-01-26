@@ -1,24 +1,32 @@
 <!doctype html>
 <html>
-    <head>
-      <title>{{title}}</title>
-      <link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='styles.css')  }}" />
-    </head>
-  <body>
+<head>
+    <style type="text/css">
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <p align = center>
+        <a href = "/">Home</a>
+        <a href = "/blog">All Blog Posts</a>
+        <a href = "/newpost">Add Blog Entry</a>
+        <a href = '/login'>Log In</a>
+        <a href='/logout'>Log Out</a>
+    </p>
+    <hr />
 
-  {% with messages = get_flashed_messages(with_categories=True) %}
-      <div>
+    {% with messages = get_flashed_messages(with_categories=True) %}
         {% for category,message in messages %}
-          <li class="{{category}}">{{message}}</li>
+            <p class="{{category}}">{{message}}</p>
         {% endfor %}
-      </div>
-  {% endwith %}  
-  <a href="http://127.0.0.1:5000/">Home</a> <a href="http://127.0.0.1:5000/new_post">New Post</a>
-  <br />
-  <br />
+    {% endwith %}
 
-    {%  block content  %}
-    {%  endblock  %}
+    
+    {% block content %}
+    {% endblock %}
 
-  </body>
+    
+</body>
 </html>

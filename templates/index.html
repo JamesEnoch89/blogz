@@ -1,23 +1,21 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-<div class='header'>
-<h1>Build-A-Blog</h1>
-</div>
 
-<div class='content'>
-{% if blogs|length == 0 %}
-<p>No blogs yet. <a href='/newpost'>Add one!</a></p>
-{% else %}
-    <ul>
-        {% for blog in blogs %}
-        <li class='box'>
-            <p><a href='/blogpost?id={{blog.id}}'><h3>{{blog.title}}</h3></a></p>
-            <p>{{blog.pub_date}}</p>
-            <p>{{blog.body}}</p>
-        </li>
-        {% endfor %}
-    </ul>
-{% endif %}
-</div>
+    {% if users|length == 0 %}
+    <p>User List <a href="signup">No Users Yet</a></p>
+    {% else %}
+
+        
+            {% for user in users %}
+            <h2><a href=?id={{user.id}}>{{user.username}}</a></h2>
+            {% endfor %}
+        
+
+    {% endif %}
+
+    <hr />
+
+
+
 {% endblock %}
