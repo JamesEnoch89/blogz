@@ -51,7 +51,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
             session['username'] = username
-            flash("You are logged in, pal!")
+            flash("You are now logged in!")
             return redirect('/newpost')
         if not user:
             flash('This user does not exist.', 'error')
